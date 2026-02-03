@@ -1,0 +1,401 @@
+# =============================================================================
+# 统一语义层定义 (Unified Semantic Layer) - 数据源全量对齐版
+# 核心说明：所有的 key 字段均直接使用 Excel 中的原始中文列名
+# =============================================================================
+
+fields:
+
+  # =======================================================
+  # A. 维度 (Dimensions) - 直接对齐数据表表头
+  # =======================================================
+  - key: 订单号
+    name: 订单号
+    role: dimension
+    type: string
+    desc: 唯一订单标识
+    llm_visible: True
+
+  - key: 业务线
+    name: 业务线
+    role: dimension
+    type: string
+    llm_visible: True
+
+  # - key: 仓储名称
+  #   name: 仓储名称
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+
+  - key: 类目
+    name: 细分目
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 工程师质检机型
+    name: 工程师质检机型
+    role: dimension
+    type: string
+    llm_visible: True
+    enable_enum: False
+
+  - key: 总部质检机型名称
+    name: 总部质检机型名称
+    role: dimension
+    type: string
+    llm_visible: True
+    enable_enum: False
+
+  - key: 大区
+    name: 大区
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 战区
+    name: 战区
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 质检工程师/店员
+    name: 回收师姓名
+    role: dimension
+    type: string
+    llm_visible: True
+    enable_enum: False
+
+  - key: 服务站/门店
+    name: 服务站
+    role: dimension
+    type: string
+    llm_visible: True
+    enable_enum: False
+
+  # - key: 质检方式,1-全检/2-部分检/3-免检
+  #   name: 质检方式
+  #   role: dimension
+  #   type: string
+  #   llm_visible: False
+
+  # - key: 是否有id锁
+  #   name: 是否有ID锁
+  #   role: dimension
+  #   type: string
+  #   llm_visible: False
+
+  - key: 差额类型
+    name: 差额类型
+    role: dimension
+    type: string
+    llm_visible: True
+
+  # - key: 是否大差异订单
+  #   name: 是否大差异订单
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+
+  # - key: 质检类型
+  #   name: 质检类型
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+
+  # - key: 最终判责责任方
+  #   name: 最终判责责任方
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+
+  # - key: 最终判责责任类型
+  #   name: 最终判责责任类型
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+
+  - key: 最终判责责任分类
+    name: 最终判责责任分类
+    role: dimension
+    type: string
+    llm_visible: True
+
+  # - key: 质检一级项
+  #   name: 质检一级项
+  #   role: dimension
+  #   type: string
+  #   alias: ["检测模块"]
+  #   llm_visible: True
+
+  # - key: 质检二级项
+  #   name: 质检二级项
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+  #   enable_enum: False
+
+  # - key: 质检三级项-总部
+  #   name: 质检三级项-总部
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+  #   enable_enum: False
+
+  - key: 总部质检等级
+    name: 总部质检等级
+    role: dimension
+    type: string
+    llm_visible: True
+
+#  - key: 质检三级项-工程师
+#    name: 质检三级项-工程师
+#    role: dimension
+#    type: string
+#    llm_visible: True
+#    enable_enum: False
+
+  - key: 工程师质检等级
+    name: 工程师质检等级
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 判责订单生成日期
+    name: 订单生成日期
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 判责完成日期
+    name: 判责完成日期
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 售后单创建日期
+    name: 售后单创建日期
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 计算gmv日期
+    name: 统计日期
+    role: dimension
+    type: string
+    format: date
+    llm_visible: True
+
+  - key: 是否使用质检app
+    name: 是否使用质检App
+    role: dimension
+    type: string
+    alias: ["使用App"]
+    llm_visible: True
+
+  # - key: 整备结果
+  #   name: 整备结果
+  #   role: dimension
+  #   type: string
+  #   llm_visible: False
+
+  - key: 是否是负差额小差异人工判责
+    name: 是否小差异人工判责
+    role: dimension
+    type: string
+    llm_visible: True
+
+  # - key: 是否使用现象值质检
+  #   name: 是否使用现象值质检
+  #   role: dimension
+  #   type: string
+  #   llm_visible: True
+
+  - key: 是否使用靓机助手
+    name: 是否使用靓机助手
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 是否使用一根线
+    name: 是否使用一根线
+    role: dimension
+    type: string
+    llm_visible: True
+
+  - key: 是否启用气密工具
+    name: 是否启用气密工具
+    role: dimension
+    type: string
+    llm_visible: True
+
+  # - key: 总部质检码
+  #   name: 总部质检码
+  #   role: dimension
+  #   type: string
+  #   llm_visible: False
+
+  # - key: 是否增单
+  #   name: 是否增单
+  #   role: dimension
+  #   type: string
+  #   llm_visible: False
+
+  - key: 是否低级失误
+    name: 是否低级失误
+    role: dimension
+    type: string
+    llm_visible: True
+
+  # =======================================================
+  # B. 原子指标 (Atomic Metrics) - 对应表格中的数值列
+  # =======================================================
+  # - key: 差额绝对值
+  #   name: 差额绝对值
+  #   role: metric
+  #   type: atomic
+  #   format: int
+  #   llm_visible: True
+
+  - key: 工程师截止判责当月底履约时长
+    name: 工程师入职时长，单位：天
+    role: metric
+    type: atomic
+    format: int
+    alias: ["司龄"]
+    llm_visible: True
+
+  - key: 总部判责估价
+    name: 总部估价
+    role: metric
+    type: atomic
+    format: int
+    llm_visible: True
+
+  - key: 工程师二次估价
+    name: 工程师估价
+    role: metric
+    type: atomic
+    format: int
+    llm_visible: True
+
+  - key: 差额
+    name: 原始差额
+    role: metric
+    type: atomic
+    format: int
+    desc: 回收师价 - 总部价
+    llm_visible: True
+
+  - key: 回收gmv(去券)
+    name: 回收GMV
+    role: metric
+    type: atomic
+    format: int
+    llm_visible: True
+
+  # - key: 总部质检权重
+  #   name: 总部权重
+  #   role: metric
+  #   type: atomic
+  #   format: double
+  #   llm_visible: False
+
+  # - key: 工程师质检权重
+  #   name: 工程师权重
+  #   role: metric
+  #   type: atomic
+  #   format: double
+  #   llm_visible: False
+
+  # - key: 权重差异
+  #   name: 权重差异
+  #   role: metric
+  #   type: atomic
+  #   format: double
+  #   llm_visible: False
+
+  # - key: 主观项权重差异
+  #   name: 主观权重差异
+  #   role: metric
+  #   type: atomic
+  #   format: double
+  #   llm_visible: False
+
+  # - key: 非主观项权重差异
+  #   name: 非主观权重差异
+  #   role: metric
+  #   type: atomic
+  #   format: double
+  #   llm_visible: False
+
+  # - key: 扣费系数
+  #   name: 扣费系数
+  #   role: metric
+  #   type: atomic
+  #   format: double
+  #   llm_visible: False
+
+  - key: 扣款金额
+    name: 本订单因为差额，扣回收师的罚款
+    role: metric
+    type: atomic
+    format: int
+    llm_visible: True
+
+
+  # =======================================================
+  # C. 中间辅助指标 (Composite Metrics) - 用于复杂比率的分子计算
+  # =======================================================
+
+
+  # =======================================================
+  # D. 派生指标 (Derived Metrics) - 指定的 6 个核心比率
+  # =======================================================
+
+  # - key: 正差额率
+  #   name: 回收师整体的正差额率
+  #   role: metric
+  #   type: derived
+  #   format: double
+  #   expr: "SUM(CASE WHEN 原始差额 > 0 THEN 1 ELSE 0 END) / COUNT(*)"
+  #   desc: 回收师整体订单中原始差额为正的比例
+  #   llm_visible: True
+
+
+  # - key: 负差额率
+  #   name: 回收师整体的负差额率
+  #   role: metric
+  #   type: derived
+  #   format: double
+  #   expr: "SUM(CASE WHEN 原始差额 < 0 THEN 1 ELSE 0 END) / COUNT(*)"
+  #   desc: 回收师整体订单中原始差额为负的比例
+  #   llm_visible: True
+
+
+
+  # - key: 正差额率类目分布
+  #   name: 正差额率类目分布
+  #   role: metric
+  #   type: derived
+  #   format: double
+  #   expr: "SUM(CASE WHEN 原始差额 > 0 THEN 原始差额 ELSE 0 END) / SUM(原始差额)"
+  #   group_by: ["类目", "分类"]
+  #   desc: 正差额在各类目分类中的占比
+  #   llm_visible: True
+
+  # - key: 负差额率类目分布
+  #   name: 负差额率类目分布
+  #   role: metric
+  #   type: derived
+  #   format: double
+  #   expr: "SUM(CASE WHEN 原始差额 < 0 THEN 原始差额 ELSE 0 END) / SUM(原始差额)"
+  #   group_by: ["类目", "分类"]
+  #   desc: 负差额在各类目分类中的占比
+  #   llm_visible: True
+
+
+# =======================================================
+# E. 业务关联关系 (Relations)
+# =======================================================
+
